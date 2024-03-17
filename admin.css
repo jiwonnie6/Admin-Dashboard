@@ -1,14 +1,16 @@
 
 body {
-    font-family: "Roboto", sans-serif;
-    margin: 0;
-    padding: 0;
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  padding: 0;
 
-    display: grid;
-    grid-template-columns: 265px 4fr;
-    grid-template-rows: 140px;
-    grid-template-areas: "sidebar header";
-    /* height: 100vh; */
+  display: grid;
+  grid-template-columns: 245px 1fr;
+  grid-template-rows: 150px 1fr;
+  grid-template-areas: 
+    "sidebar searchbar"
+    "sidebar main-projects";
+  overflow: hidden;
 }
 
 body > div {
@@ -19,14 +21,14 @@ body > div {
 
 /* side bar */
 .sidebar {
-  /* margin: 0;
-  padding: 0; */
   height: 100vh;
-  width: 250px;
+  width: 230px;
   padding-left: 15px;
   padding-top: 15px;
   background-color: #028fd5;
-  color: #f0f9ff;
+  color: white;
+  grid-area: sidebar;
+  /* position: fixed; */
 }
 
 /* top sidebar */
@@ -42,7 +44,7 @@ body > div {
   border: 1px solid red;
   display: flex;
   align-items: center;
-  color: #f0f9ff;
+  color: white;
   text-decoration: none;
 }
 
@@ -55,6 +57,8 @@ body > div {
   display: grid;
   grid-template-rows: repeat(6, 25px);
   grid-template-columns: repeat(2, 60px);
+  /* grid-template-columns: 1fr 1fr; */
+  /* overflow: hidden; */
   gap: 5px;
   margin-bottom: 60px;
 }
@@ -63,7 +67,7 @@ body > div {
   border: 1px solid red;
   display: flex;
   align-items: center;
-  color: #f0f9ff;
+  color: white;
   text-decoration: none;
 }
 
@@ -94,7 +98,7 @@ body > div {
   border: 1px solid red;
   display: flex; 
   align-items: center;
-  color: #f0f9ff;
+  color: white;
   text-decoration: none;
 }
 
@@ -113,16 +117,17 @@ body > div {
   font-size: 16px;
 }
 
-/* header first line */
+/* header / searchbar first line */
 .header {
   gap: 20px;
-
+  padding-top: 10px;
 }
 
 .searchbar {
   display: grid;
   grid-template-columns: 75px 700px 135px 75px 1fr;
   grid-template-rows: 50px;
+  grid-area: searchbar;
 }
 
 .searchbar > div {
@@ -172,9 +177,8 @@ body > div {
 
 .searchbar-second {
   display: grid;
-  grid-template-columns: 100px 700px 1fr;
+  grid-template-columns: 100px 680px 1fr;
   grid-template-rows: 90px;
-  /* padding-top: 15px; */
 }
 
 .searchbar-second div {
@@ -200,16 +204,69 @@ body > div {
 .header-buttons {
   display: flex;
   align-items: center;
-  gap: 25px;
+  gap: 20px;
 }
 
 .header-buttons > button {
-  border-radius: 15px;
+  border-radius: 20px;
   background-color: #028fd5;
   color: white;
   border: 0;
-  height: 30px;
-  width: 75px;
+  height: 35px;
+  width: 85px;
   font-weight: bold;
-  font-size: 12px;
+  font-size: 14px;
+}
+
+/* main */
+/* projects section */
+.main {
+  padding-left: 27px;
+  background-color: rgb(247, 244, 244);
+
+  overflow-y: auto;
+  height: 110vh;
+} 
+
+.project-header {
+  padding-top: 5px;
+  font-weight: 500;
+  font-size: 18px;
+  color: rgb(39, 39, 39);
+  margin-bottom: -10px;
+}
+
+.main-projects {
+  display: grid;
+  grid-template-columns: 385px 385px;
+  grid-template-rows: 250px 250px 250px 250px;
+  grid-area: main-projects;
+  gap: 33px;
+}
+
+#project-box {
+  border: 1px solid red;
+  border-radius: 8px;
+  box-shadow: -8px 0px 0px 0px #fbbf24;
+  background-color: white;
+  padding: 15px;
+  font-size: 17px;
+  font-weight: 500;
+  position: relative;
+}
+
+.project-icons {
+  display: flex;
+  justify-content: end;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  right: 30px;
+  bottom: 35px;
+  gap: 25px;
+}
+
+.project-icons > img {
+  width: 25px;
+  height: 25px;
 }
