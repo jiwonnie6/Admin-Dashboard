@@ -254,11 +254,19 @@ body > div {
   padding-top: 5px;
 
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
+  /* grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr; */
 
-  grid-template-areas: "project-section announcement-section";
+  grid-template-areas: 
+    "project-section announcement-section"
+    "project-section trending-section";
 } 
+
+.main::after {
+  content: "";
+  display: block;
+  height: 75px; /* Adjust the height according to your preference */
+}
 
 .project-section {
   grid-area: project-section;
@@ -274,15 +282,41 @@ body > div {
 
 .main-projects {
   display: grid;
-  grid-template-columns: 385px 385px;
-  grid-template-rows: 260px 260px 260px 260px;
+  /* grid-template-rows: 1fr 1fr; */
+  grid-template-columns: repeat(2, minmax(200px, 1fr));
+
+  /* grid-template-columns: 385px 385px; */
+  grid-template-rows: 260px 260px 260px;
   gap: 33px;
 }
 
 #project-box {
-  border: 1px solid red;
+  position: relative;
+  z-index: 1; /* Ensure the box is above the pseudo-element */
+}
+
+#project-box:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  /* border-radius: 5px; */
+  left: -8px;
+  width: 7px;
+  height: 100%;
+  background: #fbbf24; /* Shadow color */
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  z-index: -1; /* Push the pseudo-element behind the box */
+}
+
+#project-box {
+  /* border: 1px solid red; */
   border-radius: 7px;
-  box-shadow: -8px 0px 0px 0px #fbbf24;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+
+  box-shadow: 7px 5px 5px rgb(201, 200, 200);
+
   background-color: white;
   padding: 15px;
   font-size: 17px;
@@ -311,6 +345,7 @@ body > div {
 .announcement-section {
   grid-area: announcement-section;
   padding-left: 23px;
+  padding-right: 23px;
 }
 
 .announcement-header {
@@ -322,7 +357,8 @@ body > div {
 
 .announcement-main {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(10px, 1fr));
+  /* grid-template-columns: 1fr; */
   grid-template-rows: 1fr;
   width: 275px;
 
@@ -343,4 +379,56 @@ body > div {
 .announcement-main hr {
   width: 280px;
   border-color: rgb(255, 253, 253);
+}
+
+/* trending section */
+.trending-section {
+  grid-area: trending-section;
+  padding-left: 23px;
+  padding-top: 19px;
+}
+
+.trending-header {
+  margin-bottom: -10px;
+  font-size: 18px;
+  font-weight: 500;
+  color: rgb(39, 39, 39);
+}
+
+.trending-main {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  width: 275px;
+
+  border-radius: 7px;
+  background-color: white;
+
+  border: 1px solid red;
+  padding: 30px;
+  border-radius: 7px;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.trending-main div {
+  border: 1px solid red;
+}
+
+.trending-profile{
+  display: grid;
+  grid-template-columns: 50px 1fr;
+  /* grid-template-rows: 100px 1fr 1fr 1fr; */
+  margin-bottom: 10px;
+}
+
+.user-profile-trending {
+  display: flex;
+  align-items: center;
+}
+
+.user-profile-trending img{
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
 }
