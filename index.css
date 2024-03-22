@@ -137,6 +137,9 @@ body {
 .searchbar-second {
   display: grid;
   grid-template-columns: minmax(100px, .7fr) minmax(250px, 4.5fr) minmax(300px, 2fr);
+  box-shadow: 7px 5px 5px rgb(242, 223, 198);
+  z-index: 1;
+  position: relative;
 }
 
 .user-profile-bee-second-container {
@@ -234,6 +237,8 @@ body {
 
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
+
+  box-shadow: 7px 5px 5px rgb(242, 223, 198);
  }
 
  .project-icons {
